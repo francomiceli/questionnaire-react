@@ -1,0 +1,68 @@
+.answers__container {
+  height: 480px;
+  width: 640px;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.answers__subtitle {
+  font-family: "PT Sans", sans-serif;
+  border-bottom-style: double;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 12px;
+}
+
+.answers-items {
+  font-family: "PT Sans", sans-serif;
+}
+
+.answers-items h3 {
+  font-family: "Roboto Slab", serif;
+}
+
+.answer-cards__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 30px;
+}
+
+.answers__actions {
+  margin-top: 31px;
+  float: right;
+}
+
+
+@media screen and (max-width: 640px), (max-height: 600px) {
+  .answers__container {
+    height: 320px;
+    width: 480px;
+    padding: 0px;
+    font-size: 0.7rem;
+    display: inline;
+    text-align: center;
+  }  
+
+  .answers__subtitle {
+    font-family: "PT Sans", sans-serif;
+    border-bottom-style: double;
+    font-size: 1.1rem;
+    margin-bottom: 0px; 
+    padding-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .answer-cards__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 3px;
+    font-size: 0.8rem;
+  }
+
+  .answers__actions {
+    margin-top: 87px;
+  }
+}

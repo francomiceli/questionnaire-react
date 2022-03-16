@@ -1,0 +1,112 @@
+.question3__container {
+  height: 480px;
+  width: 640px;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.question3__subtitle {
+  font-family: "PT Sans", sans-serif;
+  border-bottom-style: double;
+  font-size: 1.5rem;
+  margin-bottom: 80px;
+  padding-bottom: 12px;
+}
+
+.question3-description__control {
+  font-family: "Roboto Slab", serif;
+}
+
+.question3-description__control label {
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.question3-description__control textarea {
+  font: inherit;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 5rem;
+  width: 260px;
+  resize: none;
+  white-space: pre-wrap;
+}
+
+.question3-description__word-tracker {
+  padding-top: 20px;
+  font-family: "Roboto Slab", serif;
+}
+
+.question3-action__back {
+  float: left;
+  margin-top: 61px;
+}
+.question3-action__next {
+  float: right;
+  margin-top: 61px;
+}
+
+@media (max-width: 640px), (max-height: 600px) {
+  .question3__container {
+    height: 320px;
+    width: 480px;
+    font-size: 0.7rem;
+    display: inline;
+  }  
+
+  .question3__subtitle {
+    font-family: "PT Sans", sans-serif;
+    border-bottom-style: double;
+    font-size: 1.1rem;
+    margin-bottom: 0px; 
+    padding-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .question3-description__control {
+    font-family: "Roboto Slab", serif;
+    float: left;
+  }
+  
+  .question3-description__control label {
+    font-size: 1.1rem;
+    padding: 15px 0;
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  .question3-description__control textarea {
+    font: inherit;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    height: 5rem;
+    width: 270px;
+    resize: none;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+  }
+  
+  .question3-description__word-tracker {
+    padding-top: 40px;
+    font-size: 14px;    
+    font-family: "Roboto Slab", serif;
+    display: table-footer-group;
+  }
+
+  .question3-action__container {
+    padding: 43px 0;
+  }
+  
+  .question3-action__back {
+    float: left;
+    margin-top: 11px;
+  }
+  .question3-action__next {
+    position: fixed;   
+    margin-left: 60px;
+    margin-top: 11px;
+  }
+}

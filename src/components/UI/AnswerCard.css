@@ -1,0 +1,19 @@
+.answer-card {
+  padding: 1.15rem;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+  min-height: 115px;
+  max-height: 115px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 640px), (max-height: 600px) {
+  .answer-card {
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+    min-height: 40px;
+    max-height: 40px;
+    font-size: 0.9rem;
+  }
+}

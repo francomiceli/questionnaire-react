@@ -1,0 +1,78 @@
+.questionnaire-form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.toggle-theme-label {
+  font-family: "PT Sans", sans-serif;
+}
+
+.toggle-theme-action {  
+  padding: 30px;
+}
+
+
+@media (max-width: 640px), (max-height: 600px) {
+  .questionnaire-form__container {
+    display: block;
+    padding: 2rem;
+  }
+
+  .toggle-theme-label {
+    text-align: center;
+    font-family: "PT Sans", sans-serif;
+  }
+  
+  .toggle-theme-action {  
+    padding: 30px;    
+  }
+}
+
+/* .circle-left {
+  width: 300px;
+  height: 230px;
+  border-top-right-radius: 110px;
+  border-bottom-right-radius: 110px;
+  place-self: start;
+  position: fixed;
+}
+.circle-right {
+  width: 300px;
+  height: 230px;
+  border-top-left-radius: 110px;
+  border-bottom-left-radius: 110px;
+  place-self: end;
+  position: fixed;
+}
+
+.dark-circle {
+  animation: fadeInDarkAnimation ease 2s;
+  animation-fill-mode: forwards;
+}
+
+.light-circle {
+  animation: fadeInLightAnimation ease 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInDarkAnimation {
+  0% {
+    background-color: #8ef2ffe3;
+  }
+  100% {
+    background-color: #161819e0;
+  }
+}
+
+@keyframes fadeInLightAnimation {
+  0% {
+    background-color: #161819e0;
+  }
+  100% {
+    background-color: #8ef2ffe3;
+  }
+} */
