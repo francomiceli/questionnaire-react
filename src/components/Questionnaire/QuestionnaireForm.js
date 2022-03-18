@@ -27,7 +27,6 @@ const QuestionnaireForm = () => {
     ...(theme === "light" ? style.light : style.dark),
     ...style.common,
   };
-
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
@@ -63,7 +62,7 @@ const QuestionnaireForm = () => {
           <span className="toggle-theme-action">
             <ThemeToggle />
           </span>
-          <QuestionnaireStart style={themeStyle} next={nextStep} />
+          <QuestionnaireStart style={themeStyle} start={nextStep} />
         </main>
       );
     case 2:
@@ -121,7 +120,7 @@ const QuestionnaireForm = () => {
             style={themeStyle}
             data={formData}
             handleChange={handleChange}
-            backToStart={restartQuestionnaire}
+            restart={restartQuestionnaire}
           />
         </main>
       );

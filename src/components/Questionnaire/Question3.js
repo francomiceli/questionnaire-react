@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-
 import "./Question3.css";
 import "./Button.css";
+import QuestionnaireControl from "./QuestionnaireControl";
 
-const Question3 = (props) => {
+const Question3 = ({ data, handleChange, back, next }) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   const descriptionIsValid =
-    props.data.description !== "" && props.data.description.length <= 50;
+    data.description !== "" && data.description.length <= 50;
 
   useEffect(() => {
     if (descriptionIsValid) {
@@ -32,29 +32,21 @@ const Question3 = (props) => {
             wrap="hard"
             maxLength={50}
             placeholder="Enter your description here..."
-            value={props.data.description}
-            onChange={props.handleChange}
+            value={data.description}
+            onChange={handleChange}
           ></textarea>
         </div>
         <div className="question3-description__word-tracker">
           <span>
-            {"Total characters used: " + props.data.description.length + "/50"}
+            {"Total characters used: " + data.description.length + "/50"}
           </span>
         </div>
         <div className="question3-action__container">
-          <button
-            className="button question3-action__back"
-            onClick={props.back}
-          >
-            Back
-          </button>
-          <button
-            className="button question3-action__next"
-            disabled={!formIsValid}
-            onClick={props.next}
-          >
-            Next
-          </button>
+          <QuestionnaireControl
+            formIsValid={formIsValid}
+            back={back}
+            next={next}
+          />
         </div>
       </div>
     </form>

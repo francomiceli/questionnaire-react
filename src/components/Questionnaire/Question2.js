@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Question2.css";
 import "./Button.css";
+import QuestionnaireControl from "./QuestionnaireControl";
 
-const Question2 = (props) => {
+const Question2 = ({ data, handleChange, back, next }) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const genreIsValid = props.data.genre !== "";
+  const genreIsValid = data.genre !== "";
 
   useEffect(() => {
     if (genreIsValid) {
@@ -23,11 +24,7 @@ const Question2 = (props) => {
         </p>
         <div className="question2-genre__control">
           <label htmlFor="genre">Music genres:</label>
-          <select
-            name="genre"
-            value={props.data.genre}
-            onChange={props.handleChange}
-          >
+          <select name="genre" value={data.genre} onChange={handleChange}>
             <option value="">--Please choose an option--</option>
             <option value="Hip Hop">Hip Hop</option>
             <option value="House">House</option>
@@ -37,19 +34,11 @@ const Question2 = (props) => {
           </select>
         </div>
         <div className="question2-action__container">
-          <button
-            className="button question2-action__back"
-            onClick={props.back}
-          >
-            Back
-          </button>
-          <button
-            className="button question2-action__next"
-            disabled={!formIsValid}
-            onClick={props.next}
-          >
-            Next
-          </button>
+          <QuestionnaireControl
+            formIsValid={formIsValid}
+            back={back}
+            next={next}
+          />
         </div>
       </div>
     </form>

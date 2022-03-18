@@ -2,9 +2,9 @@ import React from "react";
 import "./AnswersSummary.css";
 import "./Button.css";
 import AnswerCard from "../UI/AnswerCard";
+import QuestionnaireControl from "./QuestionnaireControl";
 
-const AnswersSummary = (props) => {
-  const { data } = props;
+const AnswersSummary = ({ data, restart }) => {
   const listItems = Object.entries(data).map(([key, value]) => (
     <AnswerCard key={key}>
       <strong>
@@ -22,9 +22,7 @@ const AnswersSummary = (props) => {
         <div className="answer-cards__container">{listItems}</div>
       </div>
       <div className="answers__actions">
-        <button className={"button"} onClick={props.backToStart}>
-          Restart Questionnaire
-        </button>
+        <QuestionnaireControl restart={restart} />
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Question1.css";
 import "./Button.css";
+import QuestionnaireControl from "./QuestionnaireControl";
 
-const Question1 = (props) => {
+const Question1 = ({ data, handleChange, back, next }) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const nameIsValid = props.data.name !== "";
-  const emailIsValid =
-    props.data.email !== "" && props.data.email.includes("@");
+  const nameIsValid = data.name !== "";
+  const emailIsValid = data.email !== "" && data.email.includes("@");
 
   useEffect(() => {
     if (nameIsValid && emailIsValid) {
@@ -29,8 +29,8 @@ const Question1 = (props) => {
             type="text"
             name="name"
             placeholder="Enter your name here..."
-            value={props.data.name}
-            onChange={props.handleChange}
+            value={data.name}
+            onChange={handleChange}
           />
         </div>
         <div className="question1-email__control">
@@ -39,24 +39,16 @@ const Question1 = (props) => {
             type="email"
             name="email"
             placeholder="Enter your email here..."
-            value={props.data.email}
-            onChange={props.handleChange}
+            value={data.email}
+            onChange={handleChange}
           />
         </div>
         <div question="question1-action__container">
-          <button
-            className="button question1-action__back"
-            onClick={props.back}
-          >
-            Back
-          </button>
-          <button
-            className="button question1-action__next"
-            disabled={!formIsValid}
-            onClick={props.next}
-          >
-            Next
-          </button>
+          <QuestionnaireControl
+            formIsValid={formIsValid}
+            back={back}
+            next={next}
+          />
         </div>
       </div>
     </form>
