@@ -3,7 +3,7 @@ import "./Question3.css";
 import "./Button.css";
 import QuestionnaireControl from "./QuestionnaireControl";
 
-const Question3 = ({ data, handleChange, back, next }) => {
+const Question3 = ({ data, handleChange, back, submit }) => {
   const [formIsValid, setFormIsValid] = useState(false);
 
   const descriptionIsValid =
@@ -45,7 +45,7 @@ const Question3 = ({ data, handleChange, back, next }) => {
           <QuestionnaireControl
             formIsValid={formIsValid}
             back={back}
-            next={next}
+            submit={submit}
           />
         </div>
       </div>

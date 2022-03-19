@@ -1,7 +1,7 @@
 import React from "react";
 import "./QuestionnaireControl.css";
 
-const QuestionnaireControl = ({ formIsValid, start, back, next, restart }) => {
+const QuestionnaireControl = ({ formIsValid, start, back, next, submit, restart }) => {
   return (
     <div question="question1-action__container">
       {start && (
@@ -21,6 +21,11 @@ const QuestionnaireControl = ({ formIsValid, start, back, next, restart }) => {
           onClick={next}
         >
           Next
+        </button>
+      )}
+      {submit && (
+        <button className="button question1-action__next" onClick={submit}>
+          Submit
         </button>
       )}
       {restart && (

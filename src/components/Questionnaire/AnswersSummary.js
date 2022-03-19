@@ -9,8 +9,7 @@ const AnswersSummary = ({ data, restart }) => {
     <AnswerCard key={key}>
       <strong>
         Your {key === "genre" ? "favourite" : ""} {key}:
-      </strong>{" "}
-      {value}
+      </strong>{" " + value}
     </AnswerCard>
   ));
   return (

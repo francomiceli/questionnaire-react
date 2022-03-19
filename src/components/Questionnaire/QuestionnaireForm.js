@@ -41,10 +41,10 @@ const QuestionnaireForm = () => {
     });
   };
   const nextStep = () => {
-    setCurrentStep(currentStep + 1);
+    setCurrentStep((currStep) => currStep + 1);
   };
   const previousStep = () => {
-    setCurrentStep(currentStep - 1);
+    setCurrentStep((currStep) => currStep - 1);
   };
   const restartQuestionnaire = () => {
     setFormData({
@@ -55,76 +55,45 @@ const QuestionnaireForm = () => {
     });
     setCurrentStep(1);
   };
-  switch (currentStep) {
-    case 1:
-      return (
-        <main className="questionnaire-form__container" style={themeStyle}>
-          <span className="toggle-theme-action">
-            <ThemeToggle />
-          </span>
-          <QuestionnaireStart style={themeStyle} start={nextStep} />
-        </main>
-      );
-    case 2:
-      return (
-        <main className="questionnaire-form__container" style={themeStyle}>
-          <span className="toggle-theme-action">
-            <ThemeToggle />
-          </span>
-          <Question1
-            style={themeStyle}
-            data={formData}
-            handleChange={handleChange}
-            next={nextStep}
-            back={previousStep}
-          />
-        </main>
-      );
-    case 3:
-      return (
-        <main className="questionnaire-form__container" style={themeStyle}>
-          <span className="toggle-theme-action">
-            <ThemeToggle />
-          </span>
-          <Question2
-            style={themeStyle}
-            data={formData}
-            handleChange={handleChange}
-            next={nextStep}
-            back={previousStep}
-          />
-        </main>
-      );
-    case 4:
-      return (
-        <main className="questionnaire-form__container" style={themeStyle}>
-          <span className="toggle-theme-action">
-            <ThemeToggle />
-          </span>
-          <Question3
-            style={themeStyle}
-            data={formData}
-            handleChange={handleChange}
-            next={nextStep}
-            back={previousStep}
-          />
-        </main>
-      );
-    default:
-      return (
-        <main className="questionnaire-form__container" style={themeStyle}>
-          <span className="toggle-theme-action">
-            <ThemeToggle />
-          </span>
-          <AnswersSummary
-            style={themeStyle}
-            data={formData}
-            handleChange={handleChange}
-            restart={restartQuestionnaire}
-          />
-        </main>
-      );
-  }
+  return (
+    <main className="questionnaire-form__container" style={themeStyle}>
+      <span className="toggle-theme-action">
+        <ThemeToggle />
+      </span>
+      {currentStep === 1 && <QuestionnaireStart start={nextStep} />}
+      {currentStep === 2 && (
+        <Question1
+          data={formData}
+          handleChange={handleChange}
+          next={nextStep}
+          back={previousStep}
+        />
+      )}
+      {currentStep === 3 && (
+        <Question2
+          data={formData}
+          handleChange={handleChange}
+          next={nextStep}
+          back={previousStep}
+        />
+      )}
+      {currentStep === 4 && (
+        <Question3
+          data={formData}
+          handleChange={handleChange}
+          submit={nextStep}
+          back={previousStep}
+        />
+      )}
+      {currentStep === 5 && (
+        <AnswersSummary
+          data={formData}
+          handleChange={handleChange}
+          restart={restartQuestionnaire}
+        />
+      )}
+    </main>
+  );
 };
 
 export default QuestionnaireForm;
