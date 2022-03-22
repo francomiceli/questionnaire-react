@@ -1,6 +1,5 @@
 import React from "react";
 import "./AnswersSummary.css";
-import "./Button.css";
 import AnswerCard from "../UI/AnswerCard";
 import QuestionnaireControl from "./QuestionnaireControl";
 
@@ -9,7 +8,8 @@ const AnswersSummary = ({ data, restart }) => {
     <AnswerCard key={key}>
       <strong>
         Your {key === "genre" ? "favourite" : ""} {key}:
-      </strong>{" " + value}
+      </strong>
+      {" " + value}
     </AnswerCard>
   ));
   return (
@@ -26,4 +26,5 @@ const AnswersSummary = ({ data, restart }) => {
     </div>
   );
 };
+
 export default AnswersSummary;

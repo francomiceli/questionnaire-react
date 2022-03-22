@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import QuestionnaireForm from "./components/Questionnaire/QuestionnaireForm";
+import { ThemeProvider } from "./store/theme-context";
+import ThemeToggler from "./components/Layout/ThemeToggler";
 import "./App.css";
 
-export const ThemeContext = React.createContext();
-
 const App = () => {
-  const [theme, setTheme] = useState("light");
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div>
-        <QuestionnaireForm />
-      </div>
-    </ThemeContext.Provider>
+    <ThemeProvider>
+      <ThemeToggler />      
+      <QuestionnaireForm />
+    </ThemeProvider>
   );
 };
 

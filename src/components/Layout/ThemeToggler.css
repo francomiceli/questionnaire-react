@@ -1,0 +1,13 @@
+.toggle-theme-action {  
+   position: absolute;
+   top: 2%;
+   left: 2%;  
+ }
+ 
+ @media (max-width: 640px), (max-height: 600px) {
+   .toggle-theme-action {  
+     position: absolute;
+     top: 2.5%;
+     left: 8.7%;      
+   }
+ }

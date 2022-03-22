@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
-import { ThemeContext } from "../../App";
-import ThemeToggle from "../Layout/ThemeToggle";
+import React, { useState } from "react";
+import { useTheme } from "../../store/theme-context";
 import QuestionnaireStart from "./QuestionnaireStart";
 import Question1 from "./Question1";
 import Question2 from "./Question2";
@@ -9,7 +8,7 @@ import AnswersSummary from "./AnswersSummary";
 import "./QuestionnaireForm.css";
 
 const QuestionnaireForm = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const style = {
     dark: {
       backgroundColor: "#161819",
@@ -57,10 +56,7 @@ const QuestionnaireForm = () => {
   };
   return (
     <main className="questionnaire-form__container" style={themeStyle}>
-      <span className="toggle-theme-action">
-        <ThemeToggle />
-      </span>
-      {currentStep === 1 && <QuestionnaireStart start={nextStep} />}
+      {currentStep === 1 && <QuestionnaireStart start={nextStep} />}      
       {currentStep === 2 && (
         <Question1
           data={formData}

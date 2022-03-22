@@ -24,7 +24,11 @@ const QuestionnaireControl = ({ formIsValid, start, back, next, submit, restart 
         </button>
       )}
       {submit && (
-        <button className="button question1-action__next" onClick={submit}>
+        <button
+          className="button question1-action__next"
+          disabled={!formIsValid}
+          onClick={submit}
+        >
           Submit
         </button>
       )}

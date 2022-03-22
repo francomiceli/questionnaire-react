@@ -11,11 +11,6 @@
   font-family: "PT Sans", sans-serif;
 }
 
-.toggle-theme-action {  
-  padding: 30px;
-}
-
-
 @media (max-width: 640px), (max-height: 600px) {
   .questionnaire-form__container {
     display: block;
@@ -25,10 +20,6 @@
   .toggle-theme-label {
     text-align: center;
     font-family: "PT Sans", sans-serif;
-  }
-  
-  .toggle-theme-action {  
-    padding: 30px;    
   }
 }
 

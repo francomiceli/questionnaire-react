@@ -1,7 +1,6 @@
 import React from "react";
 import QuestionnaireControl from "./QuestionnaireControl";
 import "./QuestionnaireStart.css";
-import "./Button.css";
 
 const QuestionnaireStart = ({ start }) => {
   return (

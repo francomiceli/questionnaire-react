@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./Question3.css";
-import "./Button.css";
 import QuestionnaireControl from "./QuestionnaireControl";
 
 const Question3 = ({ data, handleChange, back, submit }) => {
