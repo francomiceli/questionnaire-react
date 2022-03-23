@@ -34,9 +34,8 @@ const QuestionnaireForm = () => {
     description: "",
   });
   const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
+    setFormData((formData) => {
+      return { ...formData, [event.target.name]: event.target.value };
     });
   };
   const nextStep = () => {
@@ -56,7 +55,7 @@ const QuestionnaireForm = () => {
   };
   return (
     <main className="questionnaire-form__container" style={themeStyle}>
-      {currentStep === 1 && <QuestionnaireStart start={nextStep} />}      
+      {currentStep === 1 && <QuestionnaireStart start={nextStep} />}
       {currentStep === 2 && (
         <Question1
           data={formData}
