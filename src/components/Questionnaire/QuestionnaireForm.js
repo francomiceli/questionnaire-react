@@ -7,8 +7,8 @@ import Question3 from "./Question3";
 import AnswersSummary from "./AnswersSummary";
 import "./QuestionnaireForm.css";
 
-const QuestionnaireForm = () => {
-  const { theme } = useTheme();
+const QuestionnaireForm = () => {    
+  const { theme } = useTheme();  
   const style = {
     dark: {
       backgroundColor: "#161819",
@@ -37,14 +37,29 @@ const QuestionnaireForm = () => {
     setFormData((formData) => {
       return { ...formData, [event.target.name]: event.target.value };
     });
+  };  
+  const previousStep = () => {
+    setCurrentStep((currStep) => currStep - 1);
   };
   const nextStep = () => {
     setCurrentStep((currStep) => currStep + 1);
   };
-  const previousStep = () => {
-    setCurrentStep((currStep) => currStep - 1);
-  };
-  const restartQuestionnaire = () => {
+  const submitStep = async (event) => {
+    event.preventDefault();    
+    await fetch('https://questionnaire-react-fabd9-default-rtdb.firebaseio.com/answers.json', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })    
+    setCurrentStep((currStep) => currStep + 1);
+  }  
+  const restartQuestionnaire = async () => {
+    await fetch('https://questionnaire-react-fabd9-default-rtdb.firebaseio.com/answers.json', {
+      method: 'DELETE',      
+      body: null
+    })    
     setFormData({
       name: "",
       email: "",
@@ -60,29 +75,28 @@ const QuestionnaireForm = () => {
         <Question1
           data={formData}
           handleChange={handleChange}
-          next={nextStep}
           back={previousStep}
+          next={nextStep}          
         />
       )}
       {currentStep === 3 && (
         <Question2
           data={formData}
           handleChange={handleChange}
-          next={nextStep}
           back={previousStep}
+          next={nextStep}          
         />
       )}
       {currentStep === 4 && (
         <Question3
           data={formData}
           handleChange={handleChange}
-          submit={nextStep}
           back={previousStep}
+          submit={submitStep}          
         />
       )}
       {currentStep === 5 && (
-        <AnswersSummary
-          data={formData}
+        <AnswersSummary          
           handleChange={handleChange}
           restart={restartQuestionnaire}
         />
